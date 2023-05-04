@@ -9,3 +9,5 @@ df["TOTAL"] = df["PUNTOS_DE_VIDA"] + df["PUNTOS_ATAQUE"] + df["PUNTOS_DEFENSA"] 
 
 # Imprime el DataFrame actualizado.
 print(df)
+
+df.to_csv("pokedex_actualizado.csv", index=False)
