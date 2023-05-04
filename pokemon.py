@@ -1,25 +1,11 @@
+# sumar las columnas PUNTOS_DE_VIDA,PUNTOS_ATAQUE,PUNTOS_DEFENSA,PUNTOS_ATAQUE_ESPECIAL,PUNTO_DEFENSA_ESPECIAL,PUNTOS_VELOCIDAD y crear una nueva columna llamada TOTAL y agregarla al final del dataframe original (pokedex.csv)
 import pandas as pd
 
 # Lee el archivo CSV y convierte los datos a un DataFrame de pandas.
-df = pd.read_csv("pokemon.csv")
+df = pd.read_csv("pokedex.csv")
 
-# Ordena los Pokemon por valor y días de disponibilidad.
-df = df.sort_values(["value", "days_available"], ascending=[False, True])
+# Suma las columnas de puntos y crea una nueva columna llamada TOTAL.
+df["TOTAL"] = df["PUNTOS_DE_VIDA"] + df["PUNTOS_ATAQUE"] + df["PUNTOS_DEFENSA"] + df["PUNTOS_ATAQUE_ESPECIAL"] + df["PUNTO_DEFENSA_ESPECIAL"] + df["PUNTOS_VELOCIDAD"]
 
-# Inicializa una lista vacía para almacenar los Pokemon capturados y el valor total.
-capturados = []
-valor_total = 0
-
-# Itera sobre los Pokemon ordenados y decide cuáles capturar.
-for index, row in df.iterrows():
-    # Verifica si el Pokemon aún está disponible.
-    if row["days_available"] > 0:
-        # Agrega el Pokemon a la lista de capturados y suma su valor al valor total.
-        capturados.append(row["pokemon"])
-        valor_total += row["value"]
-        # Actualiza el número de días de disponibilidad del Pokemon.
-        df.loc[index, "days_available"] -= 1
-
-# Imprime los Pokemon capturados y el valor total.
-print("Pokemon capturados:", capturados)
-print("Valor total:", valor_total)
+# Imprime el DataFrame actualizado.
+print(df)
