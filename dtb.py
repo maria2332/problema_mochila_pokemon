@@ -16,7 +16,7 @@ import pandas as pd
 df = pd.read_csv('prueba\pokemon.csv')
 
 # Ordenar el dataframe por nombre, peso y beneficio
-df = df.sort_values(by=['Name', 'Weight', 'Power'])
+df = df.sort_values(by=['name', 'weight', 'power'])
 
 # Calcular la media de las estadísticas
 df['Avg_Stats'] = df[['Attack', 'Defense', 'HP', 'Speed', 'SpecialAttack', 'SpecialDefense']].mean(axis=1)
