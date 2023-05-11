@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 # Cargar los datos del archivo CSV en un dataframe de pandas
-df = pd.read_csv('pokemon.csv')
+df = pd.read_csv('prueba\pokemon.csv')
 
 # Seleccionar las columnas que deseas normalizar
 cols_to_normalize = ['attack', 'defense', 'speed']
